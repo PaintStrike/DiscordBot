@@ -9,7 +9,7 @@ import subprocess
 #This bot is thought to be run on Linux. Some Bash it's applied in this bot.
 
 
-######################## Variables no tocar ##########################################
+# Variables no tocar 
 
 token = subprocess.getoutput("cat ./token")
 
@@ -18,7 +18,7 @@ intent.members = True
 intent.message_content = True
 client = discord.Client(intents=intent)
 
-##############################Variables editables#######################################################
+#Variables editables
 
 ayuda = """ ```
 ---- Comandos de Pansito ---
@@ -45,14 +45,14 @@ ayuda = """ ```
 ```
 """
 
-################################################## Start Bot #############################################
+# Start Bot 
 
 @client.event
 async def on_ready():
   print('Logged in as {0.user}'.format(client))
 
 
-################################################## Variables Globales #############################################
+# Variables globales fijas.
 
 voice_clients = {}
 
@@ -62,10 +62,10 @@ ytdl = youtube_dl.YoutubeDL(yt_dl_opts)
 ffmpeg_options = {'options': "-vn"}
 
 
-################################################## Inicio de bot #############################################
+# Inicio de bot
 @client.event
 async def on_message(msg):
-################################################## Bot de Musica #############################################
+# Bot de Musica
   if msg.content.startswith("!play"):
     url = msg.content.split()[1]
     urllen = len(url)
@@ -118,7 +118,7 @@ async def on_message(msg):
         except Exception as err:
             print(err)
 
-################################################## Bot de Rango #############################################
+# Bot de Rango
 
   if msg.content.startswith('!rango'):
     profile = msg.content.split()[1]
@@ -145,7 +145,7 @@ async def on_message(msg):
       await msg.channel.send("¡Este perfil no existe!")
 
 
-############################ Eventos de Chat ###########################################
+# Eventos de Chat
   if msg.content.startswith('!vivo'):
     await msg.channel.send('¡Pansito esta vivo!') 
   if msg.content.startswith('!pan'):
